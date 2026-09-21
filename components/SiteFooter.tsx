@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div className="footer-copy">
             <h2 id="waitlist-heading">Build with intelligent feedback on your iOS applications.</h2>
           </div>
-          <WaitlistForm />
+          <WaitlistForm idPrefix="footer-" />
         </div>
       </section>
       <div className="footer-chrome">

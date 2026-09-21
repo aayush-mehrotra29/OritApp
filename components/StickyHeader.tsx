@@ -36,13 +36,16 @@ export function StickyHeader() {
   }, []);
 
   return (
-    <div
-      className={`sticky-header${visible ? " is-visible" : ""}`}
-      aria-label="Pinned navigation"
-      aria-hidden={visible ? undefined : "true"}
-      inert={visible ? undefined : ("" as unknown as boolean)}
-    >
-      <SiteHeaderContent />
-    </div>
+    <>
+      <div className={`scroll-veil${visible ? " is-visible" : ""}`} aria-hidden="true" />
+      <div
+        className={`sticky-header${visible ? " is-visible" : ""}`}
+        aria-label="Pinned navigation"
+        aria-hidden={visible ? undefined : "true"}
+        inert={visible ? undefined : ("" as unknown as boolean)}
+      >
+        <SiteHeaderContent />
+      </div>
+    </>
   );
 }
