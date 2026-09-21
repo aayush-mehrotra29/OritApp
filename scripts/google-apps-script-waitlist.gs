@@ -8,7 +8,7 @@
  * your sheet if they ever find the URL.
  */
 
-var SECRET = "REPLACE_WITH_A_LONG_RANDOM_SECRET"; // must match WAITLIST_WEBHOOK_SECRET in .env.local (kept out of git)
+var SECRET = "72584ddd742155b74e86170cc10a15f26506fecbe9da4ad6"; // must match WAITLIST_WEBHOOK_SECRET in .env.local
 var SHEET_NAME = "Waitlist"; // tab name to append rows to; falls back to the active sheet
 
 var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
