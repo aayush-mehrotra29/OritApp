@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { normalizeWaitlistEmail } from "@/lib/waitlist-email";
 
 export async function POST(request: Request) {
-  let body: { email?: string; source?: string };
+  let body: unknown;
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ ok: false, error: "invalid_body" }, { status: 400 });
   }
 
-  const email = (body.email ?? "").trim();
-  if (!EMAIL_RE.test(email)) {
+  const submittedEmail = body && typeof body === "object" && "email" in body ? body.email : null;
+  const email = typeof submittedEmail === "string" ? normalizeWaitlistEmail(submittedEmail) : null;
+  if (!email) {
     return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
   }
 
@@ -30,8 +30,6 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         secret,
         email,
-        source: body.source ?? "",
-        userAgent: request.headers.get("user-agent") ?? "",
       }),
     });
 
@@ -41,7 +39,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: result?.error ?? "upstream_error" }, { status: 502 });
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, alreadyJoined: result.alreadyJoined === true });
   } catch (err) {
     console.error("Waitlist webhook request failed:", err);
     return NextResponse.json({ ok: false, error: "network_error" }, { status: 502 });

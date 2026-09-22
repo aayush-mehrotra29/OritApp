@@ -52,6 +52,7 @@ export default function NotFound() {
               </div>
               <div>
                 <span>Company</span>
+                <a href="/about">About us</a>
                 <a href="https://tally.so/r/Ek202N" target="_blank" rel="noopener">
                   Contact
                 </a>

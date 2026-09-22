@@ -15,7 +15,7 @@ export function IntroVeil() {
   const [skip, setSkip] = useState(false);
 
   useEffect(() => {
-    if (reducedMotion) {
+    if (reducedMotion || window.location.hash) {
       setSkip(true);
       return;
     }

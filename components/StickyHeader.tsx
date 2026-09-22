@@ -9,7 +9,7 @@ export function StickyHeader() {
 
   useEffect(() => {
     function updateReadingUI() {
-      const heroSection = document.querySelector(".hero");
+      const heroSection = document.querySelector(".hero, .about-page-hero");
       const waitlistSection = document.querySelector(".footer-panel");
       if (heroSection && waitlistSection) {
         const showSticky =
