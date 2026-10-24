@@ -38,9 +38,9 @@ test('a sales hold hides checkout links and disables purchase actions', () => {
   assert.match(html, /Custom <span>quote<\/span>/);
 });
 
-test('the enabled purchase UI sends each package to its own email-first flow', () => {
-  // Verify the currently shipped configuration, not only an isolated enabled branch.
-  const html = render(config.RESEARCH_SALES_ENABLED);
+test('the enabled purchase UI sends each package to its own payment-first flow', () => {
+  // Verify the released payment-first path independently of the deployment hold.
+  const html = render(true);
   assert.doesNotMatch(html, /disabled=""/);
   assert.match(html, /Availability is confirmed at checkout/);
   const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
@@ -67,48 +67,13 @@ test('the enabled purchase UI sends each package to its own email-first flow', (
 });
 
 
-test('email drafts identify the selected package and request the product brief', () => {
-  for (const pkg of config.researchPackages) {
-    const url = new URL(config.researchEmailUrl(pkg));
-    assert.equal(url.protocol, 'mailto:');
-    assert.equal(url.pathname, 'oritsoftware@gmail.com');
-    assert.equal(url.searchParams.get('subject'), `Product details — ${pkg.name}`);
-    const body = url.searchParams.get('body');
-    assert.ok(body.includes(`$${pkg.price} USD, one-time`));
-    for (const field of ['Business / product name:', 'Product description', 'Target customers:', 'What I want to learn or decide:', 'Email I will use at Whop checkout:']) {
-      assert.ok(body.includes(field));
-    }
-  }
-});
-
-test('payment is unavailable until the customer confirms sending their email', () => {
-  const { ResearchCheckout } = load('components/ResearchCheckout.tsx', {
-    '@/lib/research': config,
-  });
+test('purchase page uses native Whop checkout before the private email invitation', () => {
+  const { ResearchCheckout } = load('components/ResearchCheckout.tsx', { '@/lib/research': config });
   for (const pkg of config.researchPackages) {
     const html = renderToStaticMarkup(React.createElement(ResearchCheckout, { pkg }));
-    assert.match(html, /type="checkbox"/);
-    assert.match(html, /<button[^>]*disabled=""/);
-    assert.doesNotMatch(html, /href="https:\/\/whop\.com/);
-    assert.match(html, /Open prefilled email/);
-  }
-});
-
-test('invalid packages and a sales hold never expose checkout', () => {
-  const dependencies = {
-    '@/components/SiteHeader': { SiteHeader: () => null },
-    '@/components/SiteFooter': { SiteFooter: () => null },
-    '@/components/AudiencePixelScene': { AudiencePixelScene: () => null },
-    '@/components/ResearchCheckout': { ResearchCheckout: () => React.createElement('div', {}, 'CHECKOUT_FLOW') },
-  };
-  for (const enabled of [false, true]) {
-    const { default: Page } = load('app/order/page.tsx', {
-      ...dependencies, '@/lib/research': { ...config, RESEARCH_SALES_ENABLED: enabled },
-    });
-    for (const slug of [undefined, 'unknown', 'https://example.com', ['concept-check'], 'concept-check']) {
-      const html = renderToStaticMarkup(React.createElement(Page, { searchParams: { package: slug } }));
-      assert.equal(html.includes('CHECKOUT_FLOW'), enabled && slug === 'concept-check');
-      assert.match(html, /Back to packages/);
-    }
+    assert.ok(html.includes(`href="${pkg.checkoutUrl}"`));
+    assert.doesNotMatch(html, /mailto:|type="checkbox"/);
+    assert.match(html, /After Whop confirms payment/);
+    assert.match(html, /private token/);
   }
 });

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { AudiencePixelScene } from "@/components/AudiencePixelScene";
-import { RESEARCH_EMAIL, researchPackages } from "@/lib/research";
+import { CONTACT_URL, researchPackages } from "@/lib/research";
 
 export const metadata: Metadata = {
   title: "Your Research Starts Here | Orit",
@@ -20,15 +20,15 @@ export default function ResearchStartPage({ searchParams }: { searchParams: { pa
           <AudiencePixelScene />
           <div className="founders-inner">
             <h1 id="start-heading">Your Research Starts Here.</h1>
-            <p className="founder-bio">{selected ? `${selected.name} project instructions. ` : "Project instructions. "}If you have purchased, check your Whop payment confirmation. We&apos;ll match your purchase to the product details you emailed.</p>
+            <p className="founder-bio">{selected ? `${selected.name} project instructions. ` : "Project instructions. "}If you have purchased, check your Whop payment confirmation. Your payment will be checked before Orit sends your private intake email.</p>
             <div className="research-intake">
               <h2>What happens next.</h2>
               <ol>
-                <li>If you already emailed your product details, you don&apos;t need to send them again. If you used a different checkout email, reply to your original email with your Whop order reference and package name.</li>
-                <li>If you haven&apos;t sent your brief yet, email us your product name, description, website, target customers, and research question. Include your checkout email and Whop order reference.</li>
-                <li>We check your payment and agree on the work, materials, and timing before starting. Ask us how to share private files or personal information safely.</li>
+                <li>Check the inbox and spam folder for the email address you used at checkout. Whop sends your receipt; Orit sends a separate private brief template after verifying payment.</li>
+                <li>Fill in the product name, description, audience, and research question in the Orit template. Keep its payment reference and private intake token unchanged, and send it from your checkout email address.</li>
+                <li>We verify your payment, sender, and purchased package before starting one project. Refunded, disputed, or reused payments cannot start another analysis. Contact us if your intake email is missing or you need help.</li>
               </ol>
-              <a className="button button-primary" href={`mailto:${RESEARCH_EMAIL}?subject=Research%20order%20follow-up`}>Email Orit</a>
+              <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noopener noreferrer">Get help with your order</a>
               <p className="founder-bio">This page does not confirm payment or start a project. Check Whop for your payment status and receipt. If payment is pending, failed, or unclear, contact us with your order reference before trying again.</p>
             </div>
           </div>
