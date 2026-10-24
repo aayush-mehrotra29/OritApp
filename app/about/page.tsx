@@ -30,6 +30,16 @@ const founders = [
     instagram: "https://www.instagram.com/builds.ishaan/?hl=en",
     linkedin: "https://www.linkedin.com/in/ishaan-gulati-834a25286/",
   },
+  {
+    name: "Anay Shekhar",
+    slug: "anay",
+    image: "/assets/anay-shekhar.png",
+    bio: "Anay Shekhar is a 15-year-old ML researcher working on research for top conferences.",
+    website: "https://anayshekhar.com/",
+    websiteLabel: "anayshekhar.com",
+    instagram: "https://www.instagram.com/aiwithanay/",
+    linkedin: "https://www.linkedin.com/in/AnayShekhar",
+  },
 ] as const;
 
 function InstagramIcon() {
