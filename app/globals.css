@@ -307,6 +307,16 @@ h1, h2, h3, p, figure { margin: 0; }
 .research-intake ol { color: var(--muted); padding-left: 22px; margin: 24px 0; }
 .research-intake li + li { margin-top: 16px; }
 .research-intake .button { min-height: 46px; padding: 0 20px; font-size: 15px; }
+.research-order { max-width: 670px; }
+.research-order section { padding: 28px 0; border-top: 1px solid var(--line); }
+.research-order-step { margin-bottom: 16px; color: var(--muted); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.research-order .button { margin-top: 22px; max-width: 100%; white-space: normal; line-height: 1.4; text-align: center; }
+.research-order .button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.research-order-help { margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.research-order-help a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.research-email-confirmation { display: flex; gap: 12px; align-items: flex-start; margin-top: 24px; padding: 12px 0; cursor: pointer; }
+.research-email-confirmation input { flex: none; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--paper); }
+.research-order-back { display: inline-block; margin-top: 24px; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 960px) {
   .research-pricing-grid { max-width: 680px; grid-template-columns: 1fr; margin: 0 auto; }
   .research-package-heading, .research-package-tagline, .research-package .research-price, .research-package-description { min-height: 0; }

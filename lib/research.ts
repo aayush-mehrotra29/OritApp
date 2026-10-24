@@ -3,6 +3,7 @@
  * Review actual recruitment and fulfillment costs before replenishing stock.
  */
 export const CONTACT_URL = "https://tally.so/r/Ek202N";
+export const RESEARCH_EMAIL = "oritsoftware@gmail.com";
 export const WHOP_ACCOUNT_ID = "biz_MexO0HEQnzwpZI";
 export const RESEARCH_SALES_ENABLED = true;
 
@@ -50,6 +51,26 @@ export const researchPackages = [
   },
 ] as const;
 
+export function researchEmailUrl(pkg: (typeof researchPackages)[number]) {
+  const subject = `Product details — ${pkg.name}`;
+  const body = [
+    `Hi Orit, I'd like to order ${pkg.name} ($${pkg.price} USD, one-time).`,
+    "",
+    "Name:",
+    "Email I will use at Whop checkout:",
+    "Business / product name:",
+    "Website or product links:",
+    "Product description (what it does and the problem it solves):",
+    "Target customers:",
+    "What I want to learn or decide:",
+    "Competitors or alternatives (if known):",
+    "Timeline and any other details:",
+    "",
+    "I'll return to orit.dev after sending this email to continue to Whop payment.",
+  ].join("\n");
+  return `mailto:${RESEARCH_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export const researchFaqs = [
   ["What does Orit do?", "We help brands test products, packaging, prices, and messages using AI research and real human feedback. You receive a clear report with findings and next steps."],
   ["Does every package include real human feedback?", "Yes. Real people review your actual idea or offer and give new feedback for your project. The study size depends on your package and audience. Contact us before buying if you need a specific audience or number of responses."],
@@ -58,6 +79,7 @@ export const researchFaqs = [
   ["Does Orit guarantee that my product will succeed?", "No. A small study can reveal concerns and ideas for improvement. It cannot tell you what the whole market wants or guarantee accurate predictions or sales."],
   ["What is included in my research brief?", "Market and competitor research, real feedback, customer concerns, suggested improvements, and next steps. We include our sources, explain how we did the research, and show where AI and people agree or differ."],
   ["How is the service billed?", "The two fixed-price packages are one-time USD purchases and include real human feedback. Whop shows any tax before you pay. Custom Simulation is quoted after we discuss your project."],
-  ["What happens after I purchase?", "Whop confirms your payment and sends you to the project instructions. Send Orit your order reference, business details, and research question. We check payment and agree on the work and materials before starting."],
+  ["How do I start my project?", "Choose a package, then email us your product details using the prefilled email. After sending it, return to the website and confirm you've sent your details to continue to Whop payment. Use the same email address at checkout so we can match your brief to your purchase."],
+  ["What happens after I purchase?", "Whop confirms your payment and sends you to the next steps. We match your purchase to the product details you emailed and agree on the work, materials, and timing before starting. If you used a different checkout email, reply to your original email with your Whop order reference."],
   ["How long does research take?", "It depends on the work and how quickly suitable people can take part. We agree on expected timing before starting. Contact us before buying if you have a deadline."],
 ] as const;

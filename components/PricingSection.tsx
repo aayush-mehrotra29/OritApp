@@ -6,7 +6,7 @@ export function PricingSection() {
     <section className="research-pricing" id="pricing" aria-labelledby="pricing-heading">
       <header className="research-pricing-heading">
         <h2 id="pricing-heading">Real insight. One project at a time.</h2>
-        <p>Choose the scope that fits your decision. Both fixed-price simulations include AI research and fresh feedback from real people.</p>
+        <p>Choose the scope that fits your decision. Both fixed-price simulations include AI research and fresh feedback from real people. Email us your product details, then continue to Whop payment.</p>
       </header>
       {RESEARCH_SALES_ENABLED ? (
         <p className="research-availability" id="research-availability">Limited launch: one project per fixed-price package. Availability is confirmed at checkout. <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer">Ask us about your project.</a></p>
@@ -26,7 +26,7 @@ export function PricingSection() {
             <div className="research-package-rule" aria-hidden="true" />
             <ul>{pkg.features.map((feature) => <li key={feature}><Check size={16} aria-hidden="true" /><span>{feature}</span></li>)}</ul>
             {RESEARCH_SALES_ENABLED ? (
-              <a className="button button-primary" href={pkg.checkoutUrl}>Choose {pkg.name}</a>
+              <a className="button button-primary" href={`/order?package=${pkg.slug}`}>Choose {pkg.name}</a>
             ) : (
               <button className="button button-primary" type="button" disabled aria-describedby="research-availability">Choose {pkg.name}</button>
             )}

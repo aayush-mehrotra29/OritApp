@@ -38,7 +38,7 @@ test('a sales hold hides checkout links and disables purchase actions', () => {
   assert.match(html, /Custom <span>quote<\/span>/);
 });
 
-test('the enabled purchase UI maps each package to its verified price and checkout', () => {
+test('the enabled purchase UI sends each package to its own email-first flow', () => {
   // Verify the currently shipped configuration, not only an isolated enabled branch.
   const html = render(config.RESEARCH_SALES_ENABLED);
   assert.doesNotMatch(html, /disabled=""/);
@@ -47,12 +47,12 @@ test('the enabled purchase UI maps each package to its verified price and checko
   assert.equal(cards.length, 3);
   assert.match(cards[0], /Light Simulation/);
   assert.match(cards[0], /\$59 /);
-  assert.match(cards[0], /href="https:\/\/whop\.com\/checkout\/ch_VgIXcLhwgDWm5rx\/"/);
+  assert.match(cards[0], /href="\/order\?package=concept-check"/);
   assert.match(cards[0], />Choose Light Simulation<\/a>/);
   assert.match(cards[1], /In Depth Simulation/);
   assert.match(cards[1], /research-package--featured/);
   assert.match(cards[1], /\$99 /);
-  assert.match(cards[1], /href="https:\/\/whop\.com\/checkout\/ch_HuQ9mIkimvjUFqV\/"/);
+  assert.match(cards[1], /href="\/order\?package=launch-research"/);
   assert.match(cards[1], />Choose In Depth Simulation<\/a>/);
   for (const card of cards.slice(0, 2)) {
     assert.match(card, /USD · one-time purchase/);
@@ -64,4 +64,51 @@ test('the enabled purchase UI maps each package to its verified price and checko
   assert.match(cards[2], /href="mailto:oritsoftware@gmail\.com\?subject=Custom%20product%20research">Email us<\/a>/);
   assert.doesNotMatch(cards[2], /Call 571-464-4236/);
   assert.doesNotMatch(cards[2], /whop\.com|one-time purchase/);
+});
+
+
+test('email drafts identify the selected package and request the product brief', () => {
+  for (const pkg of config.researchPackages) {
+    const url = new URL(config.researchEmailUrl(pkg));
+    assert.equal(url.protocol, 'mailto:');
+    assert.equal(url.pathname, 'oritsoftware@gmail.com');
+    assert.equal(url.searchParams.get('subject'), `Product details — ${pkg.name}`);
+    const body = url.searchParams.get('body');
+    assert.ok(body.includes(`$${pkg.price} USD, one-time`));
+    for (const field of ['Business / product name:', 'Product description', 'Target customers:', 'What I want to learn or decide:', 'Email I will use at Whop checkout:']) {
+      assert.ok(body.includes(field));
+    }
+  }
+});
+
+test('payment is unavailable until the customer confirms sending their email', () => {
+  const { ResearchCheckout } = load('components/ResearchCheckout.tsx', {
+    '@/lib/research': config,
+  });
+  for (const pkg of config.researchPackages) {
+    const html = renderToStaticMarkup(React.createElement(ResearchCheckout, { pkg }));
+    assert.match(html, /type="checkbox"/);
+    assert.match(html, /<button[^>]*disabled=""/);
+    assert.doesNotMatch(html, /href="https:\/\/whop\.com/);
+    assert.match(html, /Open prefilled email/);
+  }
+});
+
+test('invalid packages and a sales hold never expose checkout', () => {
+  const dependencies = {
+    '@/components/SiteHeader': { SiteHeader: () => null },
+    '@/components/SiteFooter': { SiteFooter: () => null },
+    '@/components/AudiencePixelScene': { AudiencePixelScene: () => null },
+    '@/components/ResearchCheckout': { ResearchCheckout: () => React.createElement('div', {}, 'CHECKOUT_FLOW') },
+  };
+  for (const enabled of [false, true]) {
+    const { default: Page } = load('app/order/page.tsx', {
+      ...dependencies, '@/lib/research': { ...config, RESEARCH_SALES_ENABLED: enabled },
+    });
+    for (const slug of [undefined, 'unknown', 'https://example.com', ['concept-check'], 'concept-check']) {
+      const html = renderToStaticMarkup(React.createElement(Page, { searchParams: { package: slug } }));
+      assert.equal(html.includes('CHECKOUT_FLOW'), enabled && slug === 'concept-check');
+      assert.match(html, /Back to packages/);
+    }
+  }
 });
