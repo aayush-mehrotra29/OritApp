@@ -15,10 +15,9 @@ export function SiteFooter() {
         <section className="footer-panel" id="contact" aria-labelledby="contact-heading">
           <div className="footer-panel-content">
             <div className="footer-copy">
-              <h2 id="contact-heading">Your Next Launch Deserves Real Insight.</h2>
+              <h2 id="contact-heading">Test your idea before launch.</h2>
             </div>
             <ResearchActions />
-            <p className="form-note">Orit — AI-powered market research grounded in real human insight.</p>
           </div>
         </section>
         <div className="footer-chrome">

@@ -9,7 +9,7 @@ export const RESEARCH_SALES_ENABLED = true;
 export const researchPackages = [
   {
     slug: "concept-check",
-    name: "Concept Check",
+    name: "Light Simulation",
     price: 59,
     tagline: "Test your idea with real people.",
     description: "Test one idea with AI research and feedback from real people. Get a short report with clear improvements.",
@@ -29,7 +29,7 @@ export const researchPackages = [
   },
   {
     slug: "launch-research",
-    name: "Launch Research",
+    name: "In Depth Simulation",
     price: 99,
     tagline: "Deeper research. Stronger decisions.",
     description: "Compare up to two ideas with deeper AI research and real human feedback. Get a full report to guide your launch.",
@@ -57,7 +57,7 @@ export const researchFaqs = [
   ["How is human feedback collected?", "We select people who fit your audience and research question, then ask them to review your materials. Your report explains who took part, how they were selected, what we asked, and what they said. Specialist experts require a separate quote."],
   ["Does Orit guarantee that my product will succeed?", "No. A small study can reveal concerns and ideas for improvement. It cannot tell you what the whole market wants or guarantee accurate predictions or sales."],
   ["What is included in my research brief?", "Market and competitor research, real feedback, customer concerns, suggested improvements, and next steps. We include our sources, explain how we did the research, and show where AI and people agree or differ."],
-  ["How is the service billed?", "You pay once, in USD, for the work listed in your package. Both packages include real human feedback. Whop shows any tax before you pay."],
+  ["How is the service billed?", "The two fixed-price packages are one-time USD purchases and include real human feedback. Whop shows any tax before you pay. Custom Simulation is quoted after we discuss your project."],
   ["What happens after I purchase?", "Whop confirms your payment and sends you to the project instructions. Send Orit your order reference, business details, and research question. We check payment and agree on the work and materials before starting."],
   ["How long does research take?", "It depends on the work and how quickly suitable people can take part. We agree on expected timing before starting. Contact us before buying if you have a deadline."],
 ] as const;

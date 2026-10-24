@@ -36,7 +36,7 @@ export function AbstractJourney() {
     <section ref={sectionRef} className="abstract-journey" id="about" aria-labelledby="abstract-heading">
       <div className="abstract-inner">
         <AudiencePixelScene progress={progress} />
-        <h2 id="abstract-heading" className="abstract-heading">AI research. Human insight.</h2>
+        <h2 id="abstract-heading" className="abstract-heading">Abstract</h2>
         <MagicText
           progress={progress}
           text="Orit helps brands test ideas before launch. AI researches your market. Real people respond to your product, packaging, or offer. We bring both together in a clear report showing what to improve and what to test next."

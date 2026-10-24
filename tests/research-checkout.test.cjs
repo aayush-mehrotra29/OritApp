@@ -33,6 +33,9 @@ test('a sales hold hides checkout links and disables purchase actions', () => {
   assert.doesNotMatch(html, /href="https:\/\/whop\.com/);
   assert.match(html, /Purchases are not open yet/);
   assert.match(html, /https:\/\/tally\.so\/r\/Ek202N/);
+  assert.match(html, /href="tel:\+15714644236"/);
+  assert.match(html, /href="mailto:oritsoftware@gmail\.com\?subject=Custom%20product%20research"/);
+  assert.match(html, /Custom <span>quote<\/span>/);
 });
 
 test('the enabled purchase UI maps each package to its verified price and checkout', () => {
@@ -41,15 +44,24 @@ test('the enabled purchase UI maps each package to its verified price and checko
   assert.doesNotMatch(html, /disabled=""/);
   assert.match(html, /Availability is confirmed at checkout/);
   const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
-  assert.equal(cards.length, 2);
+  assert.equal(cards.length, 3);
+  assert.match(cards[0], /Light Simulation/);
   assert.match(cards[0], /\$59 /);
   assert.match(cards[0], /href="https:\/\/whop\.com\/checkout\/ch_VgIXcLhwgDWm5rx\/"/);
-  assert.match(cards[0], />Get Concept Check<\/a>/);
+  assert.match(cards[0], />Choose Light Simulation<\/a>/);
+  assert.match(cards[1], /In Depth Simulation/);
+  assert.match(cards[1], /research-package--featured/);
   assert.match(cards[1], /\$99 /);
   assert.match(cards[1], /href="https:\/\/whop\.com\/checkout\/ch_HuQ9mIkimvjUFqV\/"/);
-  assert.match(cards[1], />Get Launch Research<\/a>/);
-  for (const card of cards) {
+  assert.match(cards[1], />Choose In Depth Simulation<\/a>/);
+  for (const card of cards.slice(0, 2)) {
     assert.match(card, /USD · one-time purchase/);
     assert.match(card, /new human responses/);
   }
+  assert.match(cards[2], /Custom Simulation/);
+  assert.match(cards[2], /Custom <span>quote<\/span>/);
+  assert.match(cards[2], /href="tel:\+15714644236">Call us<\/a>/);
+  assert.match(cards[2], /href="mailto:oritsoftware@gmail\.com\?subject=Custom%20product%20research">Email us<\/a>/);
+  assert.doesNotMatch(cards[2], /Call 571-464-4236/);
+  assert.doesNotMatch(cards[2], /whop\.com|one-time purchase/);
 });
