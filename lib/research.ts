@@ -5,7 +5,7 @@
 export const CONTACT_URL = "https://tally.so/r/Ek202N";
 export const RESEARCH_EMAIL = "oritsoftware@gmail.com";
 export const WHOP_ACCOUNT_ID = "biz_MexO0HEQnzwpZI";
-export const RESEARCH_SALES_ENABLED = false;
+export const RESEARCH_SALES_ENABLED = true;
 
 export const researchPackages = [
   {
