@@ -27,9 +27,8 @@ function render(enabled) {
   return renderToStaticMarkup(React.createElement(PricingSection));
 }
 
-test('unverified research cannot expose purchase actions', () => {
-  assert.equal(config.RESEARCH_SALES_ENABLED, false);
-  const html = render(config.RESEARCH_SALES_ENABLED);
+test('a sales hold hides checkout links and disables purchase actions', () => {
+  const html = render(false);
   assert.equal((html.match(/disabled=""/g) || []).length, 2);
   assert.doesNotMatch(html, /href="https:\/\/whop\.com/);
   assert.match(html, /Purchases are not open yet/);
@@ -37,8 +36,10 @@ test('unverified research cannot expose purchase actions', () => {
 });
 
 test('the enabled purchase UI maps each package to its verified price and checkout', () => {
-  // Exercise the future enabled branch without changing the saved readiness gate.
-  const html = render(true);
+  // Verify the currently shipped configuration, not only an isolated enabled branch.
+  const html = render(config.RESEARCH_SALES_ENABLED);
+  assert.doesNotMatch(html, /disabled=""/);
+  assert.match(html, /Availability is confirmed at checkout/);
   const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
   assert.equal(cards.length, 2);
   assert.match(cards[0], /\$59 /);

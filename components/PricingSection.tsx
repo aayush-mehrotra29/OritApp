@@ -7,7 +7,9 @@ export function PricingSection() {
         <h2 id="pricing-heading">Real insight. One project at a time.</h2>
         <p>From $59 per project. Both packages include AI research and fresh feedback from real people.</p>
       </header>
-      {!RESEARCH_SALES_ENABLED && (
+      {RESEARCH_SALES_ENABLED ? (
+        <p className="research-availability" id="research-availability">Limited launch: one project per package. Availability is confirmed at checkout. <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer">Ask us about your project.</a></p>
+      ) : (
         <p className="research-availability" id="research-availability">Purchases are not open yet. We are checking who can take part and what each study can cover. <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer">Contact us about your project.</a></p>
       )}
       <div className="research-pricing-grid">
@@ -26,7 +28,7 @@ export function PricingSection() {
           </article>
         ))}
       </div>
-      <p className="research-disclosure">Small studies help test ideas, but do not represent the whole market or guarantee sales. We agree on the study and expected timing before purchase. These packages include consumer feedback; specialist experts need a separate quote.</p>
+      <p className="research-disclosure">Small studies help test ideas, but do not represent the whole market or guarantee sales. Contact us before buying if you need a specific audience, study size, or deadline. These packages include consumer feedback; specialist experts need a separate quote.</p>
       <div className="research-faq" aria-label="Research questions and purchase information">
         {researchFaqs.map(([question, answer]) => (
           <details key={question}><summary>{question}</summary><p>{answer}</p></details>
