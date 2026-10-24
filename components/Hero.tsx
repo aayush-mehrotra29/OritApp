@@ -1,4 +1,4 @@
-import { WaitlistForm } from "@/components/WaitlistForm";
+import { ResearchActions } from "@/components/ResearchActions";
 import { HeroPixelScene } from "@/components/HeroPixelScene";
 
 export function Hero() {
@@ -10,9 +10,10 @@ export function Hero() {
       </div>
       <div className="hero-grain" aria-hidden="true" />
       <div className="hero-content">
-        <h1 className="hero-title" id="hero-heading">Orit uses AI agents to simulate how different users experience your iOS app before you ship it.</h1>
+        <h1 className="hero-title" id="hero-heading">Real Human Insight. Smarter Launches.</h1>
         <div className="hero-waitlist">
-          <WaitlistForm idPrefix="hero-" />
+          <p className="research-intro">AI-powered market research and real human feedback to help consumer brands test ideas and make better launch decisions.</p>
+          <ResearchActions secondary="process" />
         </div>
       </div>
     </section>

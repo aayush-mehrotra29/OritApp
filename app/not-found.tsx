@@ -20,8 +20,8 @@ export default function NotFound() {
           <a className="button button-contact" href="https://tally.so/r/Ek202N" target="_blank" rel="noopener">
             Contact Us
           </a>
-          <a className="button button-header-waitlist" href="/#waitlist">
-            Waitlist
+          <a className="button button-header-waitlist" href="/#pricing">
+            Pricing
           </a>
         </div>
       </header>
@@ -46,9 +46,9 @@ export default function NotFound() {
             </a>
             <nav className="footer-links" aria-label="Footer navigation">
               <div>
-                <span>Product</span>
-                <a href="/#features">Features</a>
-                <a href="/#waitlist">Waitlist</a>
+                <span>Research</span>
+                <a href="/#features">Services</a>
+                <a href="/#pricing">Pricing</a>
               </div>
               <div>
                 <span>Company</span>

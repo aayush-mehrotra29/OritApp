@@ -1,5 +1,5 @@
 import { BrandMark } from "@/components/BrandMark";
-import { WaitlistForm } from "@/components/WaitlistForm";
+import { ResearchActions } from "@/components/ResearchActions";
 import { HeroPixelScene } from "@/components/HeroPixelScene";
 
 export function SiteFooter() {
@@ -12,12 +12,13 @@ export function SiteFooter() {
         </div>
       </div>
       <footer className="site-footer">
-        <section className="footer-panel" id="waitlist" aria-labelledby="waitlist-heading">
+        <section className="footer-panel" id="contact" aria-labelledby="contact-heading">
           <div className="footer-panel-content">
             <div className="footer-copy">
-              <h2 id="waitlist-heading">Build with intelligent feedback on your iOS applications.</h2>
+              <h2 id="contact-heading">Your Next Launch Deserves Real Insight.</h2>
             </div>
-            <WaitlistForm idPrefix="footer-" />
+            <ResearchActions />
+            <p className="form-note">Orit — AI-powered market research grounded in real human insight.</p>
           </div>
         </section>
         <div className="footer-chrome">

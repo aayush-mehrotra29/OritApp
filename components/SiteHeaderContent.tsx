@@ -8,15 +8,15 @@ export function SiteHeaderContent() {
         <span className="brand-name">Orit</span>
       </a>
       <nav className="header-nav" aria-label="Site navigation">
-        <a href="/#features">Features</a>
+        <a href="/#features">Services</a>
         <a href="/about">About us</a>
       </nav>
       <div className="header-actions">
         <a className="button button-contact" href="https://tally.so/r/Ek202N" target="_blank" rel="noopener">
           Contact us
         </a>
-        <a className="button button-header-waitlist" href="/#waitlist">
-          Join waitlist
+        <a className="button button-header-waitlist" href="/#pricing">
+          Get Started
         </a>
       </div>
     </>

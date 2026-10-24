@@ -70,7 +70,7 @@ export function IntroVeil() {
             />
           </g>
         </svg>
-        <span>The future of user simulation.</span>
+        <span>AI-powered. Grounded in real people.</span>
       </p>
     </div>
   );

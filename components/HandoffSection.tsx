@@ -42,7 +42,7 @@ const REVIEW_FEATURES = [
 export function HandoffSection() {
   return (
     <section className="article-section feature-detail-section" aria-labelledby="handoff-heading">
-      <h2 id="handoff-heading">See the run from the agent's side</h2>
+      <h2 id="handoff-heading">See the run from the agent&apos;s side</h2>
       <div className="feature-detail-grid">
         {REVIEW_FEATURES.map((feature) => (
           <article className="detail-card" key={feature.title}>

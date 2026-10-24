@@ -3,26 +3,27 @@ import { FeatureIcon } from "@/components/FeatureIcon";
 
 export function StorySection() {
   return (
-    <section className="story" id="features" data-feature-story aria-label="Ways to use Orit">
+    <section className="story" id="features" data-feature-story aria-label="Research built around real decisions">
       <div className="story-inner">
         <div className="story-copy">
           <article className="story-block">
-            <div className="feature-heading"><FeatureIcon kind="search" /><h2>Find friction</h2></div>
-            <p>A build can pass every automated check and still lose someone halfway through a task. Send Orit&apos;s AI agents through first launch, permissions, checkout, settings, and App Review sensitive flows in the iOS simulator. See the exact screen and step where an agent hesitates, loops, or gets stuck, so your team knows what to revisit before release.</p>
+            <div className="feature-heading"><FeatureIcon kind="search" /><h2>Research real decisions</h2></div>
+            <p>Which concept should you launch? Is your pricing clear? What makes a competitor compelling? Orit brings together public market evidence, competitor positioning, customer reviews, and AI-assisted analysis to explore your options. From products and packaging to messaging and offers, we identify the assumptions worth testing before you invest more.</p>
           </article>
           <article className="story-block">
-            <div className="feature-heading"><FeatureIcon kind="people" /><h3>Every perspective</h3></div>
-            <p>The same flow can feel effortless to one person and impossible to another. Run it again with different languages, larger text, accessibility needs, device settings, or levels of familiarity with your app. Compare the paths agents take to find copy that does not translate, controls that become hard to reach, and assumptions in your design that only work for some users.</p>
+            <div className="feature-heading"><FeatureIcon kind="people" /><h3>Real people. Real perspectives.</h3></div>
+            <p>Every package includes new feedback from real participants, screened for your research question and responding to your actual concept or offer. Their preferences, experiences, and objections can support or challenge AI-generated hypotheses. These are actual human responses, clearly separated from simulations. Small qualitative studies reveal useful perspectives; they do not represent the whole market or guarantee sales.</p>
           </article>
-          <article className="story-block">
-            <div className="feature-heading"><FeatureIcon kind="replay" /><h3>Replay the journey</h3></div>
-            <p>When something goes wrong, a vague failure label is not enough. Orit shows the screens, taps, pauses, and decisions that led to the outcome. Product, design, and engineering can review the same journey, understand why it broke for that kind of user, and make a focused change before putting the app in real people&apos;s hands.</p>
+          <article className="story-block" id="how-it-works">
+            <div className="feature-heading"><FeatureIcon kind="replay" /><h3>From ideas to real insight</h3></div>
+            <p>Share your decision, audience, and concept. AI investigates the market and identifies assumptions. Relevant people respond to your materials. You receive an actionable research brief connecting the evidence to improvements and your next test.</p>
+            <p>Your brief separates market sources, AI hypotheses, and observed human responses. It explains participant numbers, screening, questions, disagreements, and limitations, so you can see what supports each recommendation.</p>
           </article>
         </div>
-        <aside className="phone-stage" aria-label="Two Orit agents testing an iOS app">
+        <aside className="phone-stage" aria-label="Illustrative offer screens, not participant responses or research results">
           <PhoneLandscape />
-          <object className="phone-object" data="/assets/orit-two-phones-v10.svg?v=straight-white-2" type="image/svg+xml">
-            <img src="/assets/paper-phone.png" alt="An iPhone app flow tested by Orit." />
+          <object className="phone-object" data="/assets/orit-two-phones-v10.svg?v=research-1" type="image/svg+xml" aria-label="Illustrative offer comparison">
+            <img src="/assets/paper-phone.png" alt="Illustrative product screens; no participant results are shown." />
           </object>
         </aside>
       </div>

@@ -36,10 +36,10 @@ export function AbstractJourney() {
     <section ref={sectionRef} className="abstract-journey" id="about" aria-labelledby="abstract-heading">
       <div className="abstract-inner">
         <AudiencePixelScene progress={progress} />
-        <h2 id="abstract-heading" className="abstract-heading">Abstract</h2>
+        <h2 id="abstract-heading" className="abstract-heading">The Power of AI. The Perspective of People.</h2>
         <MagicText
           progress={progress}
-          text="Orit is a Mac app that sends AI agents through your iOS app in the simulator. They check App Review issues, accessibility, localization, security, and whatever else matters to your product. You can use the agents that come with Orit or define your own around the people who use your app. A build can work and still confuse people. Orit shows you where an agent got stuck, who a flow works for, and what deserves another pass before you hand the app to real users."
+          text="Better decisions start with real insight. Before investing in products, packaging, or marketing, understand how people might respond. Orit combines AI-powered market intelligence with new feedback from real participants. AI explores competitors, public reviews, and possible objections. People bring their own preferences and experiences, challenging the assumptions behind the analysis. Every research package brings both together in a practical brief, helping small consumer brands compare options, uncover weaknesses, and decide what to test next. Small studies reveal perspectives, not guaranteed demand."
         />
       </div>
     </section>

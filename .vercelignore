@@ -1,0 +1,8 @@
+.git/
+.claude/
+.env
+.env.*
+work/
+screenshots/
+REBRAND_REPORT.md
+*.tsbuildinfo

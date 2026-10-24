@@ -4,8 +4,17 @@ import { StickyHeader } from "@/components/StickyHeader";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Orit — AI agents for iOS app testing",
-  description: "Orit uses AI agents to simulate how different users experience your iOS app before you ship it.",
+  metadataBase: new URL("https://orit.dev"),
+  title: "Orit — AI-Powered Market Research With Real Human Insight",
+  description: "Orit combines AI-powered market research with real human feedback to help consumer brands test ideas, evaluate products, and make better launch decisions.",
+  keywords: ["market research", "human consumer insights", "product concept testing", "AI-powered market research", "customer feedback", "competitor analysis", "product launch research", "e-commerce research"],
+  openGraph: {
+    type: "website", siteName: "Orit",
+    title: "Orit — AI-Powered Market Research With Real Human Insight",
+    description: "AI-powered research. Grounded in real people. Practical research briefs for better-informed launch decisions.",
+    images: [{ url: "/assets/orit-city-hero.png", alt: "Orit — AI-powered research grounded in real people" }],
+  },
+  twitter: { card: "summary_large_image", title: "Orit — Real Human Insight. Smarter Launches.", description: "AI-powered market research and real participant feedback for consumer brands.", images: ["/assets/orit-city-hero.png"] },
   icons: {
     icon: "/assets/logo.png",
   },

@@ -10,3 +10,6 @@ out/
 !.env.example
 
 *.tsbuildinfo
+
+# Local verification tools and captures
+work/
