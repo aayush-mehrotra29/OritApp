@@ -1,3 +1,4 @@
+import { ResearchSimulation } from "@/components/ResearchSimulation";
 import { PhoneLandscape } from "@/components/PhoneLandscape";
 import { FeatureIcon } from "@/components/FeatureIcon";
 
@@ -20,11 +21,9 @@ export function StorySection() {
             <p>Your report keeps market facts, AI assumptions, and human answers separate. It shows who took part, how they were selected, what we asked, where answers differed, and what remains uncertain.</p>
           </article>
         </div>
-        <aside className="phone-stage" aria-label="Illustrative offer screens, not participant responses or research results">
+        <aside className="phone-stage" aria-label="Illustrative research animation">
           <PhoneLandscape />
-          <object className="phone-object" data="/assets/orit-two-phones-v10.svg?v=research-1" type="image/svg+xml" aria-label="Illustrative offer comparison">
-            <img src="/assets/paper-phone.png" alt="Illustrative product screens; no participant results are shown." />
-          </object>
+          <ResearchSimulation />
         </aside>
       </div>
     </section>
