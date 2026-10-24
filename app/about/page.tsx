@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "About us | Orit",
-  description: "Orit combines AI-powered market intelligence with real human perspectives to make practical research more accessible to growing brands.",
+  description: "Orit brings AI research and real human feedback to growing brands.",
 };
 
 const founders = [
@@ -14,7 +14,7 @@ const founders = [
     name: "Aayush Mehrotra",
     slug: "aayush",
     image: "/assets/aayush-mehrotra.jpg",
-    bio: "Aayush has built multiple apps and AI products, including NodeLab, Inside, and Tesseract. He was the youngest 2026 Swift Student Challenge Distinguished Winner and demonstrated NodeLab to Tim Cook, John Ternus, and Apple engineers at WWDC 2026.",
+    bio: "Aayush built NodeLab, Inside, and Tesseract. He was the youngest Distinguished Winner of the 2026 Swift Student Challenge and showed NodeLab to Tim Cook, John Ternus, and Apple engineers at WWDC 2026.",
     website: "https://aayushmehrotra.com/",
     websiteLabel: "aayushmehrotra.com",
     instagram: "https://www.instagram.com/buildwaayush/?hl=en",
@@ -24,7 +24,7 @@ const founders = [
     name: "Ishaan Gulati",
     slug: "ishaan",
     image: "/assets/ishaan-gulati.jpg",
-    bio: "Ishaan is a 15-year-old developer who has independently shipped three apps, including Pulse, a social paper-trading app on the App Store, and Lumis, a voice-first AI action agent. He co-founded Orit to make practical, human-informed market research accessible to growing brands.",
+    bio: "Ishaan is a 15-year-old developer who has shipped three apps, including Pulse and Lumis. He co-founded Orit to make market research with real human feedback more accessible to growing brands.",
     website: "https://ishaangulati.com/",
     websiteLabel: "ishaangulati.com",
     instagram: "https://www.instagram.com/builds.ishaan/?hl=en",
@@ -58,8 +58,8 @@ export default function AboutPage() {
         <section className="about-page-hero" aria-labelledby="founders-heading">
           <AudiencePixelScene />
           <div className="founders-inner">
-            <h1 id="founders-heading">Intelligence Powered by AI. Grounded in People.</h1>
-            <p className="founder-bio">Orit helps small consumer and e-commerce brands evaluate ideas, uncover weaknesses, and move forward with greater clarity. AI accelerates market analysis; real participants bring the perspectives that challenge it. Our goal is to make meaningful customer insight part of more business decisions.</p>
+            <h1 id="founders-heading">AI-powered. Grounded in People.</h1>
+            <p className="founder-bio">We help small consumer and e-commerce brands make better decisions before launch. AI studies the market. Real people test the assumptions. Together, they help you see what to improve without a large research budget.</p>
             <div className="founders-list">
               {founders.map((founder) => (
                 <article className="founder-profile" key={founder.slug}>

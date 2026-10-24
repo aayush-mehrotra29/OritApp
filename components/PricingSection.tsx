@@ -5,10 +5,10 @@ export function PricingSection() {
     <section className="research-pricing" id="pricing" aria-labelledby="pricing-heading">
       <header className="story-block research-pricing-heading">
         <h2 id="pricing-heading">Real insight. One project at a time.</h2>
-        <p>Research from $59 per project. AI-powered analysis and new feedback from real people, included in both packages.</p>
+        <p>From $59 per project. Both packages include AI research and fresh feedback from real people.</p>
       </header>
       {!RESEARCH_SALES_ENABLED && (
-        <p className="research-availability" id="research-availability">Purchases are not open yet. We are confirming participant availability and study scope. <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer">Contact us about your project.</a></p>
+        <p className="research-availability" id="research-availability">Purchases are not open yet. We are checking who can take part and what each study can cover. <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer">Contact us about your project.</a></p>
       )}
       <div className="research-pricing-grid">
         {researchPackages.map((pkg) => (
@@ -26,7 +26,7 @@ export function PricingSection() {
           </article>
         ))}
       </div>
-      <p className="research-disclosure">Small qualitative studies help test assumptions; they do not represent the entire market or guarantee sales. Participant scope and expected timing are confirmed before purchase. General consumer feedback is distinct from specialist expertise.</p>
+      <p className="research-disclosure">Small studies help test ideas, but do not represent the whole market or guarantee sales. We agree on the study and expected timing before purchase. These packages include consumer feedback; specialist experts need a separate quote.</p>
       <div className="research-faq" aria-label="Research questions and purchase information">
         {researchFaqs.map(([question, answer]) => (
           <details key={question}><summary>{question}</summary><p>{answer}</p></details>

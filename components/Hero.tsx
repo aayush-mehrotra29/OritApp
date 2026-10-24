@@ -12,7 +12,7 @@ export function Hero() {
       <div className="hero-content">
         <h1 className="hero-title" id="hero-heading">Real Human Insight. Smarter Launches.</h1>
         <div className="hero-waitlist">
-          <p className="research-intro">AI-powered market research and real human feedback to help consumer brands test ideas and make better launch decisions.</p>
+          <p className="research-intro">AI-powered research and real human feedback to help your brand decide what to launch and what to improve.</p>
           <ResearchActions secondary="process" />
         </div>
       </div>
